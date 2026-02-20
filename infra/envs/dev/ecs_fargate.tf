@@ -8,7 +8,7 @@ variable "app_name" {
 
 variable "app_image_tag" {
   type    = string
-  default = "v1"
+  default = "latest"
 }
 
 variable "fargate_cpu" {
@@ -21,12 +21,7 @@ variable "fargate_memory" {
   default = 512
 }
 
-########################################
-# ECS Cluster
-########################################
-resource "aws_ecs_cluster" "main" {
-  name = "ecs-three-tier-dev-cluster"
-}
+
 
 ########################################
 # CloudWatch Logs
@@ -171,9 +166,7 @@ output "alb_dns_name" {
   value = aws_lb.app.dns_name
 }
 
-output "ecs_cluster" {
-  value = aws_ecs_cluster.main.name
-}
+
 
 output "ecs_service_name" {
   value = aws_ecs_service.app.name
