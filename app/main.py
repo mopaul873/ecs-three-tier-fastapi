@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "ECS Three-Tier App Running"}
+    return {"message": "CI/CD DEPLOY SUCCESS"}
 
 @app.get("/health")
 def health_check():
