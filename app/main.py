@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 import os
 
-app = FastAPI()
+app = FastAPI(title="ECS Three-Tier FastAPI")
 
 @app.get("/")
 def read_root():
-    return {"message": "CI/CD DEPLOY SUCCESS1"}
+    return {"message": "ECS Three-Tier FastAPI is running"}
 
 @app.get("/health")
 def health_check():

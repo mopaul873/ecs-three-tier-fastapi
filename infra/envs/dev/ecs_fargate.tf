@@ -156,6 +156,12 @@ resource "aws_ecs_service" "app" {
     container_port   = 8080
   }
 
+  # Auto scaling changes desired_count at runtime, so Terraform
+  # should not reset it back to 1 on every apply
+  lifecycle {
+    ignore_changes = [desired_count]
+  }
+
   depends_on = [aws_lb_listener.http]
 }
 
